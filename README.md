@@ -22,7 +22,11 @@ This mod only applies fixes; it adds no features of its own. It needs Galactic S
 
 - Changing a setting while a galaxy is being generated waits for that generation to finish, instead of replacing the settings under it.
 - Dragging a slider (for example UniverseGenTweaks' four sliders) makes one galaxy when you let go, not one per step of the drag. The preview is no longer made after the screen is closed.
-- Pressing a slider, toggle or button of the new game settings no longer also clicks the star behind it. Before, the star's system view could open under the settings of other mods.
+- Pressing a slider, toggle or button of the new game settings no longer also clicks the star behind it. Before, the star's system view could open under the settings of other mods. Dragging a slider past the end of its bar onto the map does not open a star either.
+
+## Buildings
+
+- Spray coaters on planets that are larger or smaller than the game's own were drawn bent and twisted, on a belt and also off it. Their shape is now right on every planet size; coaters built before are fixed when their planet is loaded.
 
 ## Saves
 
