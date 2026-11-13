@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <AssemblyName>BUG_GalacticScalePatch</AssemblyName>
+    <LangVersion>latest</LangVersion>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>  <!-- versions are set in src/Plugin.cs -->
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>  <!-- the publicizer needs it to reach private members -->
+    <!-- Override for your install: dotnet build -c Release "-p:DSPGamePath=..." "-p:BepInExCorePath=..." "-p:PluginsPath=..." -->
+    <DSPGamePath Condition="'$(DSPGamePath)' == ''">D:\Games\Dyson Sphere Program</DSPGamePath>
+    <BepInExCorePath Condition="'$(BepInExCorePath)' == ''">$(APPDATA)\com.kesomannen.gale\dyson-sphere-program\profiles\Default\BepInEx\core</BepInExCorePath>
+    <PluginsPath Condition="'$(PluginsPath)' == ''">$(APPDATA)\com.kesomannen.gale\dyson-sphere-program\profiles\Default\BepInEx\plugins</PluginsPath>
+    <ManagedPath>$(DSPGamePath)\DSPGAME_Data\Managed</ManagedPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.2" PrivateAssets="all" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="$(ManagedPath)\Assembly-CSharp.dll" Private="false" Publicize="true" />
+    <Reference Include="$(ManagedPath)\UnityEngine*.dll" Private="false" />
+    <Reference Include="$(BepInExCorePath)\BepInEx.dll" Private="false" />
+    <Reference Include="$(BepInExCorePath)\0Harmony.dll" Private="false" />
+    <Reference Include="$(PluginsPath)\Galactic_Scale-GalacticScale\GalacticScale.dll" Private="false" Publicize="true" />
+    <Reference Include="$(PluginsPath)\nebula-NebulaMultiplayerModApi\NebulaAPI.dll" Private="false" />
+  </ItemGroup>
+</Project>
