@@ -2,7 +2,7 @@
 
 Fixes for Galactic Scale 2.80.7, applied while the game runs. Galactic Scale's own files are not changed: removing this mod gives you plain Galactic Scale back.
 
-If the installed Galactic Scale is not the version these fixes were written for, nothing is patched and the BepInEx log says so. Layout fixes for Galactic Scale's screens are in [BUG_UIFix](https://thunderstore.io/c/dyson-sphere-program/p/darkenb/BUG_UIFix/).
+If the installed Galactic Scale is not the version these fixes were written for, nothing is patched and the BepInEx log says so. Layout fixes for Galactic Scale's screens are in [BUG_UIFix](https://thunderstore.io/c/dyson-sphere-program/p/BUG/BUG_UIFix/).
 
 This mod only applies fixes; it adds no features of its own. It needs Galactic Scale 2.80.7 and does nothing without it.
 
