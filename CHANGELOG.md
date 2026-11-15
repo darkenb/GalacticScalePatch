@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.3
+
+Updated for Galactic Scale 2.80.8. The fixes are unchanged; 2.80.8 does not touch the code they patch.
+
 ## 1.0.2
 
 - New game screen: dragging a slider past the end of its bar no longer opens the star system under the cursor.
