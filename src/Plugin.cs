@@ -6,15 +6,15 @@ using BepInEx.Bootstrap;
 using BepInEx.Logging;
 using HarmonyLib;
 
-[assembly: AssemblyVersion("1.0.3.0")]
-[assembly: AssemblyFileVersion("1.0.3.0")]
-[assembly: AssemblyInformationalVersion("1.0.3")]
+[assembly: AssemblyVersion("1.0.4.0")]
+[assembly: AssemblyFileVersion("1.0.4.0")]
+[assembly: AssemblyInformationalVersion("1.0.4")]
 
 namespace GalacticScalePatch
 {
-    // Fixes for GalacticScale 2.80.8, applied to the original mod at runtime with Harmony. GalacticScale's own DLL is
+    // Fixes for GalacticScale 2.80.9, applied to the original mod at runtime with Harmony. GalacticScale's own DLL is
     // not changed. A build of GalacticScale that already carries these fixes is left alone.
-    [BepInPlugin(Guid, "BUG_GalacticScalePatch", "1.0.3")]
+    [BepInPlugin(Guid, "BUG_GalacticScalePatch", "1.0.4")]
     [BepInDependency(GalacticScale)]
     public class Plugin : BaseUnityPlugin
     {

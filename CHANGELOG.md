@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.4
+
+Updated for Galactic Scale 2.80.9. The planet scan fix follows 2.80.9's change to report whether a scan ran, and skips planets with no terrain generator as 2.80.9 does.
+
 ## 1.0.3
 
 Updated for Galactic Scale 2.80.8. The fixes are unchanged; 2.80.8 does not touch the code they patch.

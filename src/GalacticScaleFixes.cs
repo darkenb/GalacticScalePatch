@@ -98,8 +98,7 @@ namespace GalacticScalePatch
                         bool scanSucceeded = false;
                         try
                         {
-                            Modeler.ScanPlanetGS(calcPlanet);
-                            scanSucceeded = true;
+                            scanSucceeded = Modeler.ScanPlanetGS(calcPlanet);
                         }
                         catch (Exception ex)
                         {
@@ -130,10 +129,11 @@ namespace GalacticScalePatch
         }
 
         [HarmonyPrefix, HarmonyPatch(typeof(Modeler), nameof(Modeler.ScanPlanetGS))]
-        static bool ScanPlanetGS(PlanetData calcPlanet)
+        static bool ScanPlanetGS(PlanetData calcPlanet, ref bool __result)
         {
+            __result = false;
             PlanetAlgorithm planetAlgorithm = Algorithm(calcPlanet);
-            if (planetAlgorithm == null) return false;
+            if (planetAlgorithm == null || planetAlgorithm is NullAlgorithm) return false;
             bool hadData = calcPlanet.data != null;
             GS2.Log($"Scanning {calcPlanet.name}" + (planetAlgorithm is GS2PlanetAlgorithm ? " (GS)" : ""));
             var highStopwatch = new HighStopwatch();
@@ -192,6 +192,7 @@ namespace GalacticScalePatch
             }
             GS2.Log($"Finished calculating planet {calcPlanet.name}");
             calcPlanet.NotifyScanEnded();
+            __result = true;
             return false;
         }
 
