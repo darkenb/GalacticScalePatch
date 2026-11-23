@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.6
+
+Updated for Galactic Scale 2.80.11. The fixes are unchanged; 2.80.11 does not touch the code they patch.
+
 ## 1.0.5
 
 Updated for Galactic Scale 2.80.10. The fixes are unchanged; 2.80.10 does not touch the code they patch.

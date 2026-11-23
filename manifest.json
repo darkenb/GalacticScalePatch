@@ -1,10 +1,10 @@
 {
     "name": "BUG_GalacticScalePatch",
-    "version_number": "1.0.5",
+    "version_number": "1.0.6",
     "website_url": "https://github.com/darkenb/GalacticScalePatch",
-    "description": "Fixes for Galactic Scale 2.80.10, applied at runtime: memory leaks and crashes in galaxy generation, planet scanning and save loading. Galactic Scale itself is not changed.",
+    "description": "Fixes for Galactic Scale 2.80.11, applied at runtime: memory leaks and crashes in galaxy generation, planet scanning and save loading. Galactic Scale itself is not changed.",
     "dependencies": [
         "xiaoye97-BepInEx-5.4.17",
-        "Galactic_Scale-GalacticScale-2.80.10"
+        "Galactic_Scale-GalacticScale-2.80.11"
     ]
 }
