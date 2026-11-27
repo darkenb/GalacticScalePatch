@@ -406,44 +406,5 @@ namespace GalacticScalePatch
                 if (hit.gameObject.GetComponentInParent<UnityEngine.UI.Selectable>() != null) return true;
             return false;
         }
-
-        // ---- Spray coaters on planets of other sizes ----
-
-        // GalacticScale's Reshape packs the coater's bend for its shader with the planet radius (across*R + along*R*2R). The
-        // shader unpacks it the game's way, with 200 and 400, so on every planet whose radius is not 200 the coater was drawn
-        // bent and twisted, on a belt and off it. The bend itself is right: it is unpacked and packed again the game's way.
-        [HarmonyPostfix, HarmonyPatch(typeof(SpraycoaterComponent), nameof(SpraycoaterComponent.Reshape))]
-        static void CoaterShape(SpraycoaterComponent __instance, PlanetFactory factory, AnimData[] _animPool)
-        {
-            int id = __instance.entityId;
-            if (factory?.planet == null || _animPool == null || id <= 0 || id >= _animPool.Length) return;
-            Vector3 up = factory.entityPool[id].pos.normalized;
-            if (up.x * up.x + up.z * up.z <= 1E-06f) return;   // at a pole Reshape writes nothing
-            _animPool[id].prepare_length = Repack(_animPool[id].prepare_length, factory.planet.realRadius);
-        }
-
-        public static float Repack(float packed, float radius)
-        {
-            if (radius <= 0f || radius == 200f) return packed;
-            float twice = radius * 2f;
-            float along = Mathf.Round(packed / twice);
-            float across = packed - along * twice;
-            return Mathf.Round(across / radius * 200f) + Mathf.Round(along / radius * 200f) * 400f;
-        }
-
-        // Saves keep the packed bend, so coaters built before this fix are shaped again when their planet is loaded.
-        [HarmonyPostfix, HarmonyPatch(typeof(PlanetFactory), nameof(PlanetFactory.Import))]
-        static void ReshapeLoadedCoaters(PlanetFactory __instance)
-        {
-            try
-            {
-                var traffic = __instance.cargoTraffic;
-                if (traffic?.spraycoaterPool == null || __instance.planet == null || __instance.planet.realRadius == 200f) return;
-                for (int i = 1; i < traffic.spraycoaterCursor; i++)
-                    if (traffic.spraycoaterPool[i].id == i && traffic.spraycoaterPool[i].entityId > 0)
-                        traffic.spraycoaterPool[i].Reshape(__instance, __instance.entityAnimPool);
-            }
-            catch (Exception e) { Plugin.Log.LogWarning("Spray coaters keep their saved shape: " + e.Message); }
-        }
     }
 }

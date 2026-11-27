@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.7
+
+Updated for Galactic Scale 2.81.1. The spray coater fix is removed: Galactic Scale 2.81.1 fixes bent spray coaters itself, including coaters in existing saves. The other fixes are unchanged; 2.81.1 does not touch the code they patch.
+
 ## 1.0.6
 
 Updated for Galactic Scale 2.80.11. The fixes are unchanged; 2.80.11 does not touch the code they patch.

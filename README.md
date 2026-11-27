@@ -1,10 +1,10 @@
 # BUG_GalacticScalePatch
 
-Fixes for Galactic Scale 2.80.11, applied while the game runs. Galactic Scale's own files are not changed: removing this mod gives you plain Galactic Scale back.
+Fixes for Galactic Scale 2.81.1, applied while the game runs. Galactic Scale's own files are not changed: removing this mod gives you plain Galactic Scale back.
 
 If the installed Galactic Scale is not the version these fixes were written for, nothing is patched and the BepInEx log says so. Layout fixes for Galactic Scale's screens are in [BUG_UIFix](https://thunderstore.io/c/dyson-sphere-program/p/BUG/BUG_UIFix/).
 
-This mod only applies fixes; it adds no features of its own. It needs Galactic Scale 2.80.11 and does nothing without it.
+This mod only applies fixes; it adds no features of its own. It needs Galactic Scale 2.81.1 and does nothing without it.
 
 ## Memory
 
@@ -23,10 +23,6 @@ This mod only applies fixes; it adds no features of its own. It needs Galactic S
 - Changing a setting while a galaxy is being generated waits for that generation to finish, instead of replacing the settings under it.
 - Dragging a slider (for example UniverseGenTweaks' four sliders) makes one galaxy when you let go, not one per step of the drag. The preview is no longer made after the screen is closed.
 - Pressing a slider, toggle or button of the new game settings no longer also clicks the star behind it. Before, the star's system view could open under the settings of other mods. Dragging a slider past the end of its bar onto the map does not open a star either.
-
-## Buildings
-
-- Spray coaters on planets that are larger or smaller than the game's own were drawn bent and twisted, on a belt and also off it. Their shape is now right on every planet size; coaters built before are fixed when their planet is loaded.
 
 ## Saves
 
